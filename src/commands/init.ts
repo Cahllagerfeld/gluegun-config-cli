@@ -1,4 +1,5 @@
 import { GluegunToolbox } from 'gluegun'
+import { Listr } from 'listr2'
 
 export default {
   name: 'init',
@@ -8,6 +9,21 @@ export default {
       template: { generate }
     } = toolBox
 
-    await generate({ template: 'config.json.ejs', target: 'config.json' })
+    const tasks = new Listr(
+      [
+        {
+          title: 'Initialize Project',
+          task: async (ctx, task): Promise<void> => {
+            await generate({
+              template: 'config.json.ejs',
+              target: 'config.json'
+            })
+          }
+        }
+      ],
+      { concurrent: false }
+    )
+
+    await tasks.run()
   }
 }
