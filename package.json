@@ -31,6 +31,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "enquirer": "^2.3.6",
     "gluegun": "latest",
     "listr2": "^3.13.5"
   },
