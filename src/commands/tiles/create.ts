@@ -1,6 +1,7 @@
 import { GluegunToolbox } from 'gluegun'
 import * as Enquirer from 'enquirer'
 import { Listr } from 'listr2'
+import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs'
 
 const enquirer = new Enquirer()
@@ -35,7 +36,7 @@ export default {
           task: async (ctx, task) => {
             ctx.currentConfig.tiles = [
               ...ctx.currentConfig.tiles,
-              ...[{ name: ctx.input }]
+              ...[{ id: uuidv4(), name: ctx.input }]
             ]
             await fs.promises.writeFile(
               'config.json',
