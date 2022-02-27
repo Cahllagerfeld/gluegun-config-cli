@@ -1,6 +1,6 @@
 # config-cli CLI
 
-A CLI for config-cli.
+A Gluegin-CLI for creating a config-file.
 
 ## Customizing your CLI
 
